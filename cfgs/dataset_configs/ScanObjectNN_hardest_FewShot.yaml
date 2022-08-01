@@ -1,0 +1,5 @@
+NAME: ModelNetFewShot
+DATA_PATH: data/ScanObjectNN_hardest_fewshot
+N_POINTS: 2048
+NUM_CATEGORY: 15
+USE_NORMALS: FALSE

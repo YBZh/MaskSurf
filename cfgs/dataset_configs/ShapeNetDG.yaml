@@ -1,0 +1,5 @@
+NAME: Shapenet_DG
+DATA_PATH: data/PointDA_data/shapenet
+N_POINTS: 1024
+NUM_CATEGORY: 10
+USE_NORMALS: FALSE

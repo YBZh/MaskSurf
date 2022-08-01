@@ -1,0 +1,5 @@
+NAME: Scannet_DG
+DATA_PATH: data/PointDA_data/scannet
+N_POINTS: 1024
+NUM_CATEGORY: 10
+USE_NORMALS: FALSE
