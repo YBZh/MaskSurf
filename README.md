@@ -9,9 +9,9 @@ Masked auto-encoding is a popular and effective self-supervised learning approac
 In this work, we make the first attempt, to the best of our knowledge, to consider the local geometry information explicitly into the masked auto-encoding, and propose a novel Masked Surfel Prediction (MaskSurf) method. Specifically, given the input point cloud masked at a high ratio, we learn a transformer-based encoder-decoder network to estimate the underlying masked surfels by simultaneously predicting the surfel positions (i.e., points) and per-surfel orientations (i.e., normals). The predictions of points and normals are supervised by the Chamfer Distance and a newly introduced Position-Indexed Normal Distance in a set-to-set manner. Our MaskSurf is validated on six downstream tasks under three fine-tuning strategies. In particular, MaskSurf outperforms its closest competitor, Point-MAE, by 1.2\% on the real-world dataset of ScanObjectNN under the OBJ-BG setting, justifying the advantages of masked surfel prediction over masked point cloud reconstruction. 
 
 
-<div  align="center">    
- <img src="./figure/net.pdf" width = "666"  align=center />
-</div>
+| ![./figure/net.png](./figure/net.png) |
+|:-------------:|
+| Fig.1: The overall framework of MaskSurf. |
 
 ## 1. Requirements
 PyTorch >= 1.7.0;
@@ -40,7 +40,7 @@ pip install --upgrade https://github.com/unlimblue/KNN_CUDA/releases/download/0.
 
 We use ShapeNet, ScanObjectNN, ModelNet40 and ShapeNetPart in this work. See [DATASET.md](./DATASET.md) for details.
 
-## 3. Point-MAE Models
+## 3. MaskSurf Models
 
 Pre-trained models will be provided here. 
 
