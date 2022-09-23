@@ -38,35 +38,38 @@ pip install --upgrade https://github.com/unlimblue/KNN_CUDA/releases/download/0.
 
 ## 2. Datasets
 
-We use ShapeNet, ScanObjectNN, ModelNet40 and ShapeNetPart in this work. See [DATASET.md](./DATASET.md) for details.
+We use ShapeNet, ScanObjectNN, ModelNet40, ShapeNetPart and S3DIS in this work. See [DATASET.md](./DATASET.md) for details.
 
 ## 3. MaskSurf Models
 
-Pre-trained models will be provided here. 
+The results of following pretrained models are slightly different from that reported in the paper due to the randomness of results.
+We report the standard deviation of results in the paper to reflect the performance fluctuation.
 
-[comment]: <> (|  Task | Dataset | Config | Acc.| Download|      )
+|  Task | Dataset | Config | Acc.| Download|      
 
-[comment]: <> (|  ----- | ----- |-----|  -----| -----|)
+|  ----- | ----- |-----|  -----| -----|
 
-[comment]: <> (|  Pre-training | ShapeNet |[pretrain.yaml]&#40;./cfgs/pretrain.yaml&#41;| N.A. | To add |)
+|  Pre-training | ShapeNet | [pretrain_MaskSurf.yaml](./cfgs/pretrain_MaskSurf.yaml)| N.A. | [here](https://drive.google.com/file/d/1tjdqdYeIE2y2zx0PXwPahBeKP3ocYPPL/view?usp=sharing) |
 
-[comment]: <> (|  Classification | ScanObjectNN |[finetune_scan_hardest.yaml]&#40;./cfgs/finetune_scan_hardest.yaml&#41;| 85.18%| &#41;  |)
+|  Classification | ScanObjectNN | [finetune_scan_hardest_transferring_features.yaml](./cfgs/finetune_scan_hardest_transferring_features.yaml)| 85.67%| [here](https://drive.google.com/file/d/1_Lt1MzDujGKXAI9mzEsfh6O--uK6a1BX/view?usp=sharing)  |
 
-[comment]: <> (|  Classification | ScanObjectNN |[finetune_scan_objbg.yaml]&#40;./cfgs/finetune_scan_objbg.yaml&#41;|90.02% | [here]&#40;https://github.com/Pang-Yatian/Point-MAE/releases/download/main/scan_objbg.pth&#41; |)
+|  Classification | ScanObjectNN | [finetune_scan_objbg_transferring_features.yaml](./cfgs/finetune_scan_objbg_transferring_features.yaml)| 91.05% | [here](https://drive.google.com/file/d/1fhAMaQ2fZXdubng4ujEyXHC6EUdDfT2T/view?usp=sharing) |
 
-[comment]: <> (|  Classification | ScanObjectNN |[finetune_scan_objonly.yaml]&#40;./cfgs/finetune_scan_objonly.yaml&#41;| 88.29%| [here]&#40;https://github.com/Pang-Yatian/Point-MAE/releases/download/main/scan_objonly.pth&#41; |)
+|  Classification | ScanObjectNN | [finetune_scan_objonly_transferring_features.yaml](./cfgs/finetune_scan_objonly_transferring_features.yaml)| 89.32%| [here](https://drive.google.com/file/d/1B1HsT3OMb_UVy5sC27ae5NWZtYauKdNS/view?usp=sharing) |
 
-[comment]: <> (|  Classification | ModelNet40&#40;1k&#41; |[finetune_modelnet.yaml]&#40;./cfgs/finetune_modelnet.yaml&#41;| 93.80%| [here]&#40;https://github.com/Pang-Yatian/Point-MAE/releases/download/main/modelnet_1k.pth&#41; |)
+|  Classification | ModelNet40 | [finetune_modelnet_transferring_features.yaml](./cfgs/finetune_modelnet_transferring_features.yaml)| 93.56%| [here](https://drive.google.com/file/d/1FVs3ztGImaO-0jgqAEXfSdOSzdUEPnna/view?usp=sharing) |
 
-[comment]: <> (|  Classification | ModelNet40&#40;8k&#41; |[finetune_modelnet_8k.yaml]&#40;./cfgs/finetune_modelnet_8k.yaml&#41;| 94.04%| [here]&#40;https://github.com/Pang-Yatian/Point-MAE/releases/download/main/modelnet_8k.pth&#41; |)
+|  Classification | ShapeNet | [finetune_shapenet_non_linear_classification.yaml](./cfgs/finetune_shapenet_non_linear_classification.yaml)| 91.10%| [here](https://drive.google.com/file/d/1iTtfoRhLsDhCjViz-w_7sWeOAwN5Rw3o/view?usp=sharing) |
 
-[comment]: <> (| Part segmentation| ShapeNetPart| [segmentation]&#40;./segmentation&#41;| 86.1% mIoU| [here]&#40;https://github.com/Pang-Yatian/Point-MAE/releases/download/main/part_seg.pth&#41; |)
+| Part segmentation| ShapeNetPart| [segmentation](./segmentation)| 86.12% mIoU| [here](https://drive.google.com/file/d/1jx1bUxjGHN1ptyhY1dKaTgieax1Y1cNr/view?usp=sharing) |
 
-[comment]: <> (|  Task | Dataset | Config | 5w10s Acc. &#40;%&#41;| 5w20s Acc. &#40;%&#41;| 10w10s Acc. &#40;%&#41;| 10w20s Acc. &#40;%&#41;|     )
+| Semantic segmentation| ShapeNetPart| [semantic_segmentation](./semantic_segmentation)| 88.3% OA| [here](https://drive.google.com/file/d/1ub7HgrquFUuIUKDMJs2O-jRwpHSXPfxU/view?usp=sharing) |
 
-[comment]: <> (|  ----- | ----- |-----|  -----| -----|-----|-----|)
+|  Task | Dataset | Config | 5w10s Acc. (%)| 5w20s Acc. (%)| 10w10s Acc. (%)| 10w20s Acc. (%)|     
 
-[comment]: <> (|  Few-shot learning | ModelNet40 |[fewshot.yaml]&#40;./cfgs/fewshot.yaml&#41;| 96.3 ± 2.5| 97.8 ± 1.8| 92.6 ± 4.1| 95.0 ± 3.0| )
+|  ----- | ----- |-----|  -----| -----|-----|-----|
+
+|  Few-shot learning | ScanObjectNN | [fewshot_scanobjectnn_transferring_features.yaml](./cfgs/fewshot_scanobjectnn_transferring_features.yaml)| 65.3 ± 4.9 | 77.4 ± 5.2 | 53.8 ± 5.3 | 63.2 ± 2.7 | 
 
 ## 4. Running
 We provide all the scripts for pre-training and fine-tuning in the [run.sh](./run.sh). 
@@ -119,21 +122,7 @@ CUDA_VISIBLE_DEVICES=<GPUs> python main_test.py  --root path/to/data --visual  -
 
 ## 5. Visualization
 
-Guidelines about visualization will be available here. 
-
-[comment]: <> (Visulization of pre-trained model on ShapeNet validation set, run:)
-
-[comment]: <> (```)
-
-[comment]: <> (python main_vis.py --test --ckpts <path/to/pre-trained/model> --config cfgs/pretrain.yaml --exp_name <name>)
-
-[comment]: <> (```)
-
-[comment]: <> (<div  align="center">    )
-
-[comment]: <> ( <img src="./figure/vvv.jpg" width = "900"  align=center />)
-
-[comment]: <> (</div>)
+Please refer to the **vis_masksurf.py** for the visualization of surfels.
 
 ## Acknowledgements
 

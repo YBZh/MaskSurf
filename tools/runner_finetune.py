@@ -138,7 +138,7 @@ def run_net(args, config, train_writer=None, val_writer=None):
         base_model.train()  # set model to training mode
         n_batches = len(train_dataloader)
 
-        ### 如果是linear classification 的模式，那么apply
+        ### if with linear classification protocol，then fix BN in the encoder by applying
         if config.optimizer.part == 'only_new':
             base_model.apply(set_bn_eval)
 
@@ -254,8 +254,8 @@ def run_net(args, config, train_writer=None, val_writer=None):
                         builder.save_checkpoint(base_model, optimizer, epoch, metrics, best_metrics_vote, 'ckpt-best_vote', args, logger = logger)
 
         builder.save_checkpoint(base_model, optimizer, epoch, metrics, best_metrics, 'ckpt-last', args, logger = logger)      
-        # if (config.max_epoch - epoch) < 10:
-        #     builder.save_checkpoint(base_model, optimizer, epoch, metrics, best_metrics, f'ckpt-epoch-{epoch:03d}', args, logger = logger)
+        if (config.max_epoch - epoch) < 10:
+            builder.save_checkpoint(base_model, optimizer, epoch, metrics, best_metrics, f'ckpt-epoch-{epoch:03d}', args, logger = logger)
     if train_writer is not None:
         train_writer.close()
     if val_writer is not None:
@@ -422,14 +422,17 @@ def test(base_model, test_dataloader, args, config, logger = None):
         if args.distributed:
             torch.cuda.synchronize()
 
-        # print_log(f"[TEST_VOTE]", logger = logger)
-        # acc = 0.
-        # for time in range(1, 300):
-        #     this_acc = test_vote(base_model, test_dataloader, 1, None, args, config, logger=logger, times=10)
-        #     if acc < this_acc:
-        #         acc = this_acc
-        #     print_log('[TEST_VOTE_time %d]  acc = %.4f, best acc = %.4f' % (time, this_acc, acc), logger=logger)
-        # print_log('[TEST_VOTE] acc = %.4f' % acc, logger=logger)
+        if args.vote:
+            print_log(f"[TEST_VOTE]", logger = logger)
+            acc = 0.
+            for time in range(1, 300):
+                this_acc = test_vote(base_model, test_dataloader, 1, None, args, config, logger=logger, times=10)
+                if acc < this_acc:
+                    acc = this_acc
+                print_log('[TEST_VOTE_time %d]  acc = %.4f, best acc = %.4f' % (time, this_acc, acc), logger=logger)
+            print_log('[TEST_VOTE] acc = %.4f' % acc, logger=logger)
+            # if acc > 97.0:
+            #     ipdb.set_trace()
 
 def test_vote(base_model, test_dataloader, epoch, val_writer, args, config, logger = None, times = 10):
 

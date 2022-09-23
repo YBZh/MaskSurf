@@ -58,7 +58,7 @@ import os
 sys.path.append(os.path.abspath(''))
 
 shapenet_v2_path = '/home/ssddata/shapenet/shapenet_v2/ShapeNetCore.v2/'
-save_path = '/home/yabin/syn_project/point_cloud/Point-MAE/data/ShapeNet55-34/shapenet_pc_ours_with_normal/'
+save_path = 'XXXX'
 
 
 # ## 在数据处理的时候不！需要 （）

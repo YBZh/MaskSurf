@@ -60,7 +60,7 @@ def parse_args():
     parser.add_argument('--model', type=str, default='pt', help='model name')
     parser.add_argument('--optimizer_part', type=str, default='all', help='training all parameters or optimizing the new layers only')
     parser.add_argument('--batch_size', type=int, default=32, help='batch Size during training')
-    parser.add_argument('--epoch', default=60, type=int, help='epoch to run')
+    parser.add_argument('--epoch', default=30, type=int, help='epoch to run')
     parser.add_argument('--warmup_epoch', default=10, type=int, help='warmup epoch')
     parser.add_argument('--learning_rate', default=0.0002, type=float, help='initial learning rate')
     parser.add_argument('--gpu', type=str, default='0', help='specify GPU devices')

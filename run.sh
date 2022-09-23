@@ -29,7 +29,7 @@ for random in $(seq 1 3)
 do
     # Transfering features protocol
     CUDA_VISIBLE_DEVICES=0 python main.py --config cfgs/finetune_modelnet_transferring_features.yaml --finetune_model --exp_name ${YAML} --ckpts ./experiments/${YAML}/cfgs/log/ckpt-last.pth
-    CUDA_VISIBLE_DEVICES=0 python main.py --test --config cfgs/finetune_modelnet_transferring_features.yaml --exp_name ${YAML} --ckpts ./experiments/finetune_modelnet_transferring_features/cfgs/${YAML}/ckpt-best.pth
+    CUDA_VISIBLE_DEVICES=0 python main.py --test --vote  --config cfgs/finetune_modelnet_transferring_features.yaml --exp_name ${YAML} --ckpts ./experiments/finetune_modelnet_transferring_features/cfgs/${YAML}/ckpt-best.pth
     # Linear classification protocol
     CUDA_VISIBLE_DEVICES=0 python main.py --config cfgs/finetune_modelnet_linear_classification.yaml --finetune_model --exp_name ${YAML} --ckpts ./experiments/${YAML}/cfgs/log/ckpt-last.pth
     # Non-linear classification protocol
