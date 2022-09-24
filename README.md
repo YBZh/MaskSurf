@@ -43,32 +43,24 @@ We use ShapeNet, ScanObjectNN, ModelNet40, ShapeNetPart and S3DIS in this work. 
 ## 3. MaskSurf Models
 
 The results of following pretrained models are slightly different from that reported in the paper due to the randomness of results.
-We report the standard deviation of results in the paper to reflect the performance fluctuation.
+We report the standard deviation of results in the paper to illustrate such performance fluctuation.
 
-|  Task | Dataset | Config | Acc.| Download|      
 
+
+|  Task | Dataset | Config | Acc.| Download|
 |  ----- | ----- |-----|  -----| -----|
-
 |  Pre-training | ShapeNet | [pretrain_MaskSurf.yaml](./cfgs/pretrain_MaskSurf.yaml)| N.A. | [here](https://drive.google.com/file/d/1tjdqdYeIE2y2zx0PXwPahBeKP3ocYPPL/view?usp=sharing) |
-
 |  Classification | ScanObjectNN | [finetune_scan_hardest_transferring_features.yaml](./cfgs/finetune_scan_hardest_transferring_features.yaml)| 85.67%| [here](https://drive.google.com/file/d/1_Lt1MzDujGKXAI9mzEsfh6O--uK6a1BX/view?usp=sharing)  |
-
 |  Classification | ScanObjectNN | [finetune_scan_objbg_transferring_features.yaml](./cfgs/finetune_scan_objbg_transferring_features.yaml)| 91.05% | [here](https://drive.google.com/file/d/1fhAMaQ2fZXdubng4ujEyXHC6EUdDfT2T/view?usp=sharing) |
-
 |  Classification | ScanObjectNN | [finetune_scan_objonly_transferring_features.yaml](./cfgs/finetune_scan_objonly_transferring_features.yaml)| 89.32%| [here](https://drive.google.com/file/d/1B1HsT3OMb_UVy5sC27ae5NWZtYauKdNS/view?usp=sharing) |
-
 |  Classification | ModelNet40 | [finetune_modelnet_transferring_features.yaml](./cfgs/finetune_modelnet_transferring_features.yaml)| 93.56%| [here](https://drive.google.com/file/d/1FVs3ztGImaO-0jgqAEXfSdOSzdUEPnna/view?usp=sharing) |
-
 |  Classification | ShapeNet | [finetune_shapenet_non_linear_classification.yaml](./cfgs/finetune_shapenet_non_linear_classification.yaml)| 91.10%| [here](https://drive.google.com/file/d/1iTtfoRhLsDhCjViz-w_7sWeOAwN5Rw3o/view?usp=sharing) |
-
 | Part segmentation| ShapeNetPart| [segmentation](./segmentation)| 86.12% mIoU| [here](https://drive.google.com/file/d/1jx1bUxjGHN1ptyhY1dKaTgieax1Y1cNr/view?usp=sharing) |
-
 | Semantic segmentation| ShapeNetPart| [semantic_segmentation](./semantic_segmentation)| 88.3% OA| [here](https://drive.google.com/file/d/1ub7HgrquFUuIUKDMJs2O-jRwpHSXPfxU/view?usp=sharing) |
 
-|  Task | Dataset | Config | 5w10s Acc. (%)| 5w20s Acc. (%)| 10w10s Acc. (%)| 10w20s Acc. (%)|     
 
+|  Task | Dataset | Config | 5w10s Acc. (%)| 5w20s Acc. (%)| 10w10s Acc. (%)| 10w20s Acc. (%)|
 |  ----- | ----- |-----|  -----| -----|-----|-----|
-
 |  Few-shot learning | ScanObjectNN | [fewshot_scanobjectnn_transferring_features.yaml](./cfgs/fewshot_scanobjectnn_transferring_features.yaml)| 65.3 ± 4.9 | 77.4 ± 5.2 | 53.8 ± 5.3 | 63.2 ± 2.7 | 
 
 ## 4. Running
@@ -122,7 +114,7 @@ CUDA_VISIBLE_DEVICES=<GPUs> python main_test.py  --root path/to/data --visual  -
 
 ## 5. Visualization
 
-Please refer to the **vis_masksurf.py** for the visualization of surfels.
+Please refer to the [vis_masksurf.py](./vis_masksurf.py) for the visualization of surfels.
 
 ## Acknowledgements
 
